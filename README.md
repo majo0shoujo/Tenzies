@@ -1,4 +1,4 @@
-![Descripción de la imagen](https://www.google.com/url?sa=i&url=https%3A%2F%2Fdoblaje.fandom.com%2Fes%2Fwiki%2FHello_Kitty&psig=AOvVaw3hJCmDM352p6kaYcZYXwtR&ust=1739986536103000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCNCUuYzhzYsDFQAAAAAdAAAAABAE)
+![Hello Kitty](https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Hello_kitty_character_portrait.png/220px-Hello_kitty_character_portrait.png)
 
 # Tenzies Game 🎲
 
