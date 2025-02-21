@@ -31,7 +31,7 @@ export default function App() {
   let gameWon = diceObjects.every(
     (dieObject) => dieObject.isHeld && dieObject.value === diceObjects[0].value
   );
-  useEffect(() => {
+  React.useEffect(() => {
     if (gameWon) {
       buttonRef.current.focus();
     }
