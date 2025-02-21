@@ -1,3 +1,5 @@
+![Hello Kitty](https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Hello_kitty_character_portrait.png/220px-Hello_kitty_character_portrait.png)
+
 # Tenzies Game 🎲
 
 A simple Tenzies game built with React and Vite.
