@@ -1,6 +1,7 @@
 import Die from "./components/Die";
 import React from "react";
 import Confetti from "./components/Confetti";
+import Header from "./components/Header";
 
 export default function App() {
   function generateAllNewDice() {
@@ -10,6 +11,7 @@ export default function App() {
       id: index,
     }));
   }
+  const [rollCount, setRollCount] = React.useState(0);
 
   const [diceObjects, setDiceObjects] = React.useState(() =>
     generateAllNewDice()
@@ -26,6 +28,7 @@ export default function App() {
 
   function newGame() {
     setDiceObjects(generateAllNewDice());
+    setRollCount(0);
   }
 
   let gameWon = diceObjects.every(
@@ -45,6 +48,7 @@ export default function App() {
           : { ...dice, value: Math.floor(Math.random() * 6) + 1 };
       })
     );
+    setRollCount((prevCount) => prevCount + 1);
   }
 
   const dieArray = diceObjects.map((dieObject, i) => (
@@ -58,18 +62,26 @@ export default function App() {
   ));
 
   return (
-    <main>
-      {gameWon ? <Confetti /> : null}
-      <div aria-live="polite" className="sr-only"></div>
-      <h1 className="title">Tenzies</h1>
-      <p className="instructions">
-        Roll until all dice are the same. Click each die to freeze it at its
-        current value between rolls.
-      </p>
-      <div className="die-container">{dieArray}</div>
-      <button ref={buttonRef} onClick={gameWon ? newGame : rollDice}>
-        {gameWon ? "New Game" : "Roll Dice"}
-      </button>
-    </main>
+    <>
+      <Header rollCount={rollCount} gameWon={gameWon} />
+      <main>
+        {gameWon ? <Confetti /> : null}
+        <div aria-live="polite" className="sr-only"></div>
+
+        <h1 className="title">Tenzies Game</h1>
+        <p className="instructions">
+          Roll until all dice are the same. Click each die to freeze it at its
+          current value between rolls.
+        </p>
+
+        <div className="die-container">{dieArray}</div>
+        <button
+          ref={buttonRef}
+          onClick={gameWon || rollCount == 15 ? newGame : rollDice}
+        >
+          {gameWon || rollCount == 15 ? "New Game" : "Roll Dice"}
+        </button>
+      </main>
+    </>
   );
 }
