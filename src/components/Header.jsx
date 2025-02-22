@@ -7,6 +7,7 @@ export default function Header(props) {
   React.useEffect(() => {
     let interval;
     if (!props.gameWon && !lost) {
+      setTime(0);
       interval = setInterval(() => {
         setTime((prevTime) => prevTime + 1);
       }, 1000);
@@ -14,7 +15,6 @@ export default function Header(props) {
     return () => clearInterval(interval);
   }, [props.gameWon, lost]);
 
-  // Función para formatear el tiempo en MM:SS
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const secs = seconds % 60;
